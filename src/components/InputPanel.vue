@@ -26,15 +26,15 @@
   export default {
     data () {
       return {
-        from: '2252',
-        to: '2311'
+        from: 'DH 2252',
+        to: 'DH 2311'
       }
     },
     methods: {
       emit () {
         this.$emit('click', {
-          from: this.from,
-          to: this.to
+          from: this.from.substr(3),
+          to: this.to.substr(3)
         })
       }
     }

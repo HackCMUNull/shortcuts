@@ -37,8 +37,9 @@
           mx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft
           my = e.clientY + document.body.scrollTop + document.documentElement.scrollTop
         }
-        mx -= this.canvas.offsetLeft
-        my -= this.canvas.offsetTop
+        mx -= this.canvasContainer.offsetLeft
+        my -= this.canvasContainer.offsetTop + 64
+//        console.log(this.canvasContainer.offsetTop)
         return {x: mx, y: my}
       },
       clearCanvas () {
@@ -80,7 +81,7 @@
           }
 
           ctx.beginPath()
-          console.log('drawing', point)
+//          console.log('drawing', point)
           const radius = 5 // Arc radius
           const startAngle = 0 // Starting point on circle
           const endAngle = Math.PI * 2 // End point on circle

@@ -1,16 +1,9 @@
 <template>
   <div class="swiper-wrap">
     <swiper class="swipe-container-wrap" :options="swiperOption">
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide>
-      <swiper-slide>Slide 6</swiper-slide>
-      <swiper-slide>Slide 7</swiper-slide>
-      <swiper-slide>Slide 8</swiper-slide>
-      <swiper-slide>Slide 9</swiper-slide>
-      <swiper-slide>Slide 10</swiper-slide>
+      <swiper-slide v-for="s in steps" :key="s.id">
+        <slot name="step" :step="s"></slot>
+      </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
       <md-button class="swiper-prev md-primary" slot="button-prev">
         <md-icon class="white-icon md-primary">chevron_left</md-icon>
@@ -27,6 +20,12 @@
 
   export default {
     components: {swiper, swiperSlide},
+    props: {
+      steps: {
+        required: true,
+        type: Array
+      }
+    },
     data () {
       return {
         swiperOption: {

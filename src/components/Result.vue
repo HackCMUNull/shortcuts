@@ -1,19 +1,39 @@
 <template>
   <div class="result">
     <navbar-back class="navbar" @back="onBack"></navbar-back>
-    <swiper class="swiper"></swiper>
+    <swiper class="swiper" :steps="steps">
+      <template slot="step" scope="props">
+        <floor-render></floor-render>
+      </template>
+    </swiper>
   </div>
 </template>
 
 <script>
   import NavbarBack from './NavbarBack.vue'
   import Swiper from './Swiper.vue'
+  import FloorRender from '../floor/FloorRender.vue'
 
   export default {
-    components: {NavbarBack, Swiper},
+    components: {NavbarBack, Swiper, FloorRender},
     methods: {
       onBack () {
         this.$router.back()
+      }
+    },
+    data () {
+      return {
+        steps: [
+          {
+            'id': 'thing'
+          },
+          {
+            'id': 'thing2'
+          },
+          {
+            'id': 'thing3'
+          }
+        ]
       }
     }
   }

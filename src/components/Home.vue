@@ -10,7 +10,7 @@
   import Navbar from './Navbar.vue'
   import HistoryList from './HistoryList.vue'
   import InputPanel from './InputPanel.vue'
-  import {Graph, nodes, roomMap} from "../findpath";
+  import {Graph, nodes, roomMap} from "../findpath"
 
   export default {
     components: {Navbar, HistoryList, InputPanel},
@@ -46,13 +46,11 @@
   }
   .navbar {
     flex: 0;
-    flex-basis: auto;
   }
   .history {
-    flex: 1 1 0;
+    flex: 1;
   }
   .input-panel {
     flex: 0;
-    flex-basis: auto;
   }
 </style>

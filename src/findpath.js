@@ -2,15 +2,17 @@ export const nodeMap = {}
 export const roomMap = {}
 
 export class Node {
-  constructor(id, name, rooms, links, building, floor) {
+  constructor(id, name, rooms, links, building, floor, x, y) {
     this.id = id
     this.name = name || ""
     this.links = links || []
     this.rooms = rooms || []
     this.rooms.forEach((room) => { roomMap[room] = this })
     nodeMap[id] = this
-    this.building = building || [] // 1: Doherty; 2: Wean
-    this.floor = floor || []  // floor number
+    this.building = building || 0 // 1: Doherty; 2: Wean
+    this.floor = floor || 0  // floor number
+    this.x = x || 0
+    this.y = y || 0
   }
 
   isRoom (room) {
@@ -138,6 +140,8 @@ export const nodes = [
       "EA5A8F8A-C60B-4980-84D6-74A008B338C3"], // DH H 3, Hw 1230, St 2251
     1,
     1,
+    278,
+    300,
   ),
   new Node(
     "9291563E-844D-4045-9B88-18770E4AEC5F",
@@ -146,6 +150,8 @@ export const nodes = [
     ["86BA098D-9C5F-404B-A503-C77709398463"], // St 1235
     1,
     1,
+    306,
+    300,
   ),
   new Node(
     "F8A8643A-9326-414B-B8EB-667F0866AFFD",
@@ -206,6 +212,8 @@ export const nodes = [
       "E2A466DF-50E1-4273-A811-35F67E4BF0B1"], // H 1350, H 1354, DW, St 2351
     1,
     1,
+    278,
+    513,
   ),
   new Node(
     "D2CA8705-D0B2-4FE9-BA32-9CBEEDFAC821",
@@ -214,6 +222,8 @@ export const nodes = [
     ["AF3D6C31-ECA8-49F9-B5D3-191A885D9552"], // St 1353
     1,
     1,
+    306,
+    513,
   ),
   new Node(
     "D8A16C7A-DA6A-49E5-9E0B-DA6769A04CEC",
@@ -283,6 +293,8 @@ export const nodes = [
       "5249000E-2C8E-4CA4-90D7-E15FEAC21107"], // H 2150B, St 1235, H 2350
     1,
     2,
+    246,
+    292,
   ),
   new Node(
     "5249000E-2C8E-4CA4-90D7-E15FEAC21107",
@@ -291,6 +303,8 @@ export const nodes = [
     ["EA5A8F8A-C60B-4980-84D6-74A008B338C3", "CF0F2B75-DB08-4D77-A23D-29856C242BC5"], // St 2251, H 2350A
     1,
     2,
+    246,
+    351,
   ),
   new Node(
     "CF0F2B75-DB08-4D77-A23D-29856C242BC5",
@@ -299,6 +313,8 @@ export const nodes = [
     ["5249000E-2C8E-4CA4-90D7-E15FEAC21107", "E2A466DF-50E1-4273-A811-35F67E4BF0B1"], // H 2350, St 2351
     1,
     2,
+    246,
+    423,
   ),
   new Node(
     "E2A466DF-50E1-4273-A811-35F67E4BF0B1",
@@ -309,6 +325,8 @@ export const nodes = [
       "7807CCB2-7D56-458F-86FC-D2255ACF554F"], // H 2350A, St 1353, DW 2
     1,
     2,
+    246,
+    502,
   ),
   new Node(
     "7807CCB2-7D56-458F-86FC-D2255ACF554F",

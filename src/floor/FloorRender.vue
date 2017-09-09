@@ -7,11 +7,32 @@
 </template>
 
 <script>
+  const floor = {
+    1: {
+      1: '/static/dh1.png',
+      2: '/static/dh2.png'
+    }
+  }
+
   export default {
+    props: {
+      building: {
+        type: Number,
+        required: true
+      },
+      floor: {
+        type: Number,
+        required: true
+      },
+      direction: {
+        type: Array,
+        required: true
+      }
+    },
     data () {
       return {
-        points: [],
-        image: '/static/image.png',
+        points: this.direction,
+        image: floor[this.building][this.floor],
         imageInstance: null
       }
     },

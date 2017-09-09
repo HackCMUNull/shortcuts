@@ -41,6 +41,7 @@
         }
         directions.push(path.slice(dir_start, path.length))
         console.log("directions", directions)
+        this.$store.dispatch('setDirections', directions)
 
         this.$router.push({
           name: 'result'

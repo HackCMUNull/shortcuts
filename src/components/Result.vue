@@ -1,9 +1,9 @@
 <template>
   <div class="result">
     <navbar-back class="navbar" @back="onBack"></navbar-back>
-    <swiper class="swiper" :steps="steps">
+    <swiper class="swiper" :steps="directions">
       <template slot="step" scope="props">
-        <floor-render></floor-render>
+        <floor-render :building="props.step[0].building" :floor="props.step[0].floor" :direction="props.step"></floor-render>
       </template>
     </swiper>
   </div>
@@ -13,9 +13,13 @@
   import NavbarBack from './NavbarBack.vue'
   import Swiper from './Swiper.vue'
   import FloorRender from '../floor/FloorRender.vue'
+  import {mapGetters} from 'vuex'
 
   export default {
     components: {NavbarBack, Swiper, FloorRender},
+    computed: {
+      ...mapGetters(['directions'])
+    },
     methods: {
       onBack () {
         this.$router.back()

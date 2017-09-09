@@ -1,83 +1,124 @@
 <template>
   <div class="swiper-wrap">
-    <md-boards class="md-primary" :md-swipeable="true" :md-controls="true">
-      <md-board id="slide1">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-      </md-board>
-      <md-board id="slide2">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-      </md-board>
-      <md-board id="slide3">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-      </md-board>
-      <md-board id="slide4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-      </md-board>
-    </md-boards>
+    <swiper :options="swiperOption">
+      <swiper-slide>Slide 1</swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>Slide 4</swiper-slide>
+      <swiper-slide>Slide 5</swiper-slide>
+      <swiper-slide>Slide 6</swiper-slide>
+      <swiper-slide>Slide 7</swiper-slide>
+      <swiper-slide>Slide 8</swiper-slide>
+      <swiper-slide>Slide 9</swiper-slide>
+      <swiper-slide>Slide 10</swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+      <md-button class="swiper-prev md-primary" slot="button-prev"><md-icon class="md-primary">chevron_left</md-icon></md-button>
+      <md-button class="swiper-next md-primary" slot="button-next"><md-icon class="md-primary">chevron_right</md-icon></md-button>
+    </swiper>
   </div>
 </template>
 
 <script>
-//  import {swiper, swiperSlide} from 'vue-awesome-swiper'
+  import {swiper, swiperSlide} from 'vue-awesome-swiper'
 
   export default {
-//    components: {swiper, swiperSlide},
-//    data () {
-//      return {
-//        swiperOption: {
-////          pagination: '.swiper-pagination',
-////          paginationClickable: true,
-////          setWrapperSize: true,
-////          autoHeight: true,
-////          setWrapperSize: true,
-//          notNextTick: true,
-//          observeParents: true,
-////          centeredSlides: true,
-//          nextButton: '.swiper-button-next',
-//          prevButton: '.swiper-button-prev'
-//        }
-//      }
-//    },
-//    computed: {
-//      swiper () {
-//        return this.$refs.swiper.swiper
-//      }
-//    }
+    components: {swiper, swiperSlide},
+    data () {
+      return {
+        swiperOption: {
+          pagination: '.swiper-pagination',
+          paginationClickable: true,
+//          setWrapperSize: true,
+//          autoHeight: true,
+//          setWrapperSize: true,
+          notNextTick: true,
+          observeParents: true,
+//          centeredSlides: true,
+          nextButton: '.swiper-next',
+          prevButton: '.swiper-prev'
+        }
+      }
+    },
+    computed: {
+      swiper () {
+        return this.$refs.swiper.swiper
+      }
+    }
   }
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  /*.swiper-slide {*/
-    /*text-align: center;*/
-    /*font-size: 18px;*/
-    /*background: #fff;*/
-    /*!* Center slide text vertically *!*/
-    /*display: -webkit-box;*/
-    /*display: -ms-flexbox;*/
-    /*display: -webkit-flex;*/
-    /*display: flex;*/
-    /*-webkit-box-pack: center;*/
-    /*-ms-flex-pack: center;*/
-    /*-webkit-justify-content: center;*/
-    /*justify-content: center;*/
-    /*-webkit-box-align: center;*/
-    /*-ms-flex-align: center;*/
-    /*-webkit-align-items: center;*/
-    /*align-items: center;*/
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
     /*width: 400px;*/
-    /*height: 400px;*/
-  /*}*/
+    min-height: 320px;
+  }
 
-  /*.swiper-container {*/
-    /*width: 100%;*/
-  /*}*/
+  .swiper-container {
+    width: 100%;
+  }
 
-  /*.swiper-wrap {*/
-    /*margin: 0;*/
-    /*padding: 0;*/
+  .swiper-wrap {
+    margin: 0;
+    padding: 0;
     /*position: relative;*/
-    /*!*height: 100%;*!*/
-  /*}*/
+    /*height: 100%;*/
+  }
+
+  .swiper-prev, .swiper-next {
+    top: auto;
+    position: absolute;
+    z-index: 11;
+    bottom: 0;
+    background-image: none;
+  }
+
+  .swiper-prev {
+    left: 0;
+  }
+
+  .swiper-next {
+    right: 0;
+  }
+
+</style>
+
+<style>
+  .swiper-pagination-bullet {
+    transition: all 0.3s ease;
+    height: 12px;
+    width: 12px;
+    background: rgba(255, 255, 255, .54);
+  }
+
+  .swiper-pagination-bullet-active {
+    background: rgba(255, 255, 255, .87);
+  }
+
+  .swiper-pagination-bullets {
+    background: #9C0000;
+    /*height: 12px;*/
+    padding: 16px 12px 12px;
+  }
+
+  .swiper-pagination {
+    bottom: 0 !important;
+  }
 </style>

@@ -10,6 +10,10 @@ import storeOptions from './vuex/store'
 
 import axios from 'axios'
 import VueMaterial from 'vue-material'
+Vue.use(VueMaterial)
+
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 
@@ -65,8 +69,6 @@ export const http = axios.create({
 Vue.use(Vuex)
 
 export const store = new Vuex.Store(storeOptions)
-
-Vue.use(VueMaterial)
 
 /* eslint-disable no-new */
 new Vue({

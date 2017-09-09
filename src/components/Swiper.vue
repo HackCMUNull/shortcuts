@@ -12,8 +12,8 @@
       <swiper-slide>Slide 9</swiper-slide>
       <swiper-slide>Slide 10</swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
-      <md-button class="swiper-prev md-primary" slot="button-prev"><md-icon class="md-primary">chevron_left</md-icon></md-button>
-      <md-button class="swiper-next md-primary" slot="button-next"><md-icon class="md-primary">chevron_right</md-icon></md-button>
+      <md-button class="swiper-prev md-primary" slot="button-prev"><md-icon class="white-icon md-primary">chevron_left</md-icon></md-button>
+      <md-button class="swiper-next md-primary" slot="button-next"><md-icon class="white-icon md-primary">chevron_right</md-icon></md-button>
     </swiper>
   </div>
 </template>
@@ -88,6 +88,7 @@
     z-index: 11;
     bottom: 0;
     background-image: none;
+    /*color: rgba(255, 255, 255, .87);*/
   }
 
   .swiper-prev {
@@ -98,11 +99,19 @@
     right: 0;
   }
 
+  .white-icon {
+    transition: all 0.4s ease;
+    color: rgba(255, 255, 255, .87) !important;
+  }
+
+  .swiper-button-disabled > .white-icon {
+    color: darkgray !important;
+  }
 </style>
 
 <style>
   .swiper-pagination-bullet {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     height: 12px;
     width: 12px;
     background: rgba(255, 255, 255, .54);

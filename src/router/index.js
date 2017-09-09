@@ -5,6 +5,8 @@ import Landing from '../components/Landing.vue'
 import Home from '../components/Home.vue'
 import Result from '../components/Result.vue'
 import Swiper from '../components/Swiper.vue'
+import Navbar from '../components/Navbar.vue'
+import Navbar2 from '../components/Navbar02.vue'
 
 Vue.use(Router)
 
@@ -24,6 +26,16 @@ export default new Router({
       path: '/result',
       name: 'result',
       component: Result
+    },
+    {
+      path: '/b',
+      name: 'b',
+      component: Navbar
+    },
+    {
+      path: '/b2',
+      name: 'b2',
+      component: Navbar2
     },
     {
       path: '/a',

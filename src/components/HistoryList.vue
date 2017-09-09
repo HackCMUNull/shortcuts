@@ -2,7 +2,10 @@
   <div>
     <md-list>
       <md-list-item v-for="h in history" :key="id">
-        <span @click="clickHistory(h.id)">{{h.title}}</span>
+        <span @click="clickHistory(h.id)">
+          <i class="fa fa-angle-double-right"></i>
+          From {{h.start}} to {{h.end}}
+        </span>
       </md-list-item>
     </md-list>
   </div>
@@ -15,30 +18,40 @@
         history: [
           {
             id: 0,
-            title: "Fake History 1"
+            start: "GHC 4",
+            end: "WEH 4"
           },
           {
             id: 1,
-            title: "Fake History 2"
+            start: "GHC 3",
+            end: "NSH A"
           },
           {
             id: 2,
-            title: "Fake History 3"
+            start: "SH 2",
+            end: "HH 2"
           },
           {
             id: 3,
-            title: "Fake History 6"
+            start: "WEH 7",
+            end: "GHC 8"
           },
         ]
       }
     },
     methods: {
       clickHistory (id) {
-        alert(id)
-        this.history[id].title = "zaqxfc"
+        alert("You clicked on History #"+id)
         this.history.push({
-          id: this.history.length,
-          title: "zswcct"
+          start: this.history[id].start,
+          end: this.history[id].end
+        })
+      },
+
+      addHistory () {
+        this.history.push({
+          start: "TBA",
+          end: "TBA"
         })
       }
     }

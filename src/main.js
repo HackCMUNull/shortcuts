@@ -8,6 +8,7 @@ import Vuex from 'vuex'
 import storeOptions from './vuex/store'
 
 import axios from 'axios'
+import VueMaterial from 'vue-material'
 
 Vue.config.productionTip = false
 
@@ -61,9 +62,10 @@ export const http = axios.create({
 })
 
 Vue.use(Vuex)
+
 export const store = new Vuex.Store(storeOptions)
 
-
+Vue.use(VueMaterial)
 
 /* eslint-disable no-new */
 new Vue({

@@ -2,7 +2,7 @@
   <div>
     <md-list>
       <md-list-item v-for="h in history" :key="id">
-        <span @click="clickHistory(h.id)">{{h.title}}</span>
+        <span @click="clickHistory(h.id)">From {{h.start}} to {{h.end}}</span>
       </md-list-item>
     </md-list>
   </div>
@@ -15,19 +15,23 @@
         history: [
           {
             id: 0,
-            title: "Fake History 1"
+            start: "GHC 4",
+            end: "WEH 4"
           },
           {
             id: 1,
-            title: "Fake History 2"
+            start: "GHC 3",
+            end: "NSH A"
           },
           {
             id: 2,
-            title: "Fake History 3"
+            start: "SH 2",
+            end: "HH 2"
           },
           {
             id: 3,
-            title: "Fake History 6"
+            start: "WEH 7",
+            end: "GHC 8"
           },
         ]
       }

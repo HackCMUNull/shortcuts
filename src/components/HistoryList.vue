@@ -1,6 +1,8 @@
 <template>
   <div>
     <md-list>
+      <md-list-item v-for="h in history" :key="h.id">
+        <span @click="clickHistory(h.id)">
       <md-list-item v-for="h in history" :key="id">
         <span class="history-item" @click="clickHistory(h.id)">
           <i class="fa fa-angle-double-right"></i>
@@ -46,7 +48,7 @@
     },
     methods: {
       clickHistory (id) {
-        alert("You clicked on History #"+id)
+        alert("You clicked on History #" + id)
         this.history.push({
           start: this.history[id].start,
           end: this.history[id].end

@@ -2,19 +2,24 @@
   <div class="home">
     <navbar class="navbar"></navbar>
     <history-list class="history"></history-list>
-    asdf
-    <md-button class="md-primary md-raised" @click="$router.push({'name': 'result'})">
-      Result
-    </md-button>
+    <input-panel class="input-panel" @click="inputClick"></input-panel>
   </div>
 </template>
 
 <script>
   import Navbar from './Navbar.vue'
   import HistoryList from './HistoryList.vue'
+  import InputPanel from './InputPanel.vue'
 
   export default {
-    components: {Navbar, HistoryList}
+    components: {Navbar, HistoryList, InputPanel},
+    methods: {
+      inputClick ({from, to}) {
+        this.$router.push({
+          name: 'result'
+        })
+      }
+    }
   }
 </script>
 

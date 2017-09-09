@@ -22,6 +22,8 @@
 <style scoped>
   .navbar {
     background-color: #9C0000 !important;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    z-index: 10;
   }
 
   .filler {

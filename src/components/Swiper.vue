@@ -133,5 +133,6 @@
 
   .swiper-pagination {
     bottom: 0 !important;
+    box-shadow: 0 -5px 16px rgba(0, 0, 0, 0.1);
   }
 </style>

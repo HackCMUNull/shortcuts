@@ -78,4 +78,8 @@
   .slide-right-leave {
     left: 0;
   }
+
+  * {
+    outline: none;
+  }
 </style>

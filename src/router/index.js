@@ -7,6 +7,7 @@ import Result from '../components/Result.vue'
 import Swiper from '../components/Swiper.vue'
 import NavbarBack from '../components/NavbarBack.vue'
 import Navbar from '../components/Navbar.vue'
+import FloorRender from '../floor/FloorRender.vue'
 
 Vue.use(Router)
 
@@ -51,6 +52,11 @@ export default new Router({
       path: '/swipe',
       name: 'swipe',
       component: Swiper
+    },
+    {
+      path: '/floor',
+      name: 'floor',
+      component: FloorRender
     }
   ]
 })

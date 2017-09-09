@@ -161,6 +161,5 @@
   }
 
   canvas {
-
   }
 </style>

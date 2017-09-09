@@ -1,6 +1,6 @@
 <template>
   <div class="result">
-    <navbar-back class="navbar" @back="onBack"></navbar-back>
+    <navbar-back :title="title" class="navbar" @back="onBack"></navbar-back>
     <swiper class="swiper" :steps="directions">
       <template slot="step" scope="props">
         <floor-render :building="props.step[0].building" :floor="props.step[0].floor" :direction="props.step"></floor-render>
@@ -18,7 +18,7 @@
   export default {
     components: {NavbarBack, Swiper, FloorRender},
     computed: {
-      ...mapGetters(['directions'])
+      ...mapGetters(['directions', 'title'])
     },
     methods: {
       onBack () {
@@ -52,6 +52,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
   .navbar {
     flex: 0;

@@ -5,7 +5,7 @@
         <md-icon>chevron_left</md-icon>
       </md-button>
 
-      <h2 class="md-title" style="flex: 1;"></h2>
+      <h2 class="md-title" style="flex: 1;">{{title}}</h2>
 
       <md-button class="md-icon-button">
         <md-icon>menu</md-icon>
@@ -16,6 +16,11 @@
 
 <script>
   export default {
+    props: {
+      title: {
+        type: String
+      }
+    },
     methods: {
       onBack () {
         this.$emit('back')

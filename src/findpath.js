@@ -336,6 +336,12 @@ export const nodes = [
     1,
     2,
   )
-]
+].map((node) => {
+  if (node['x'] && node['y']) {
+    node.x = node.x / 414
+    node.y = node.y / 608
+  }
+  return node
+})
 
 export const graph = new Graph(nodes)

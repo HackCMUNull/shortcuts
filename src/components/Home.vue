@@ -33,7 +33,7 @@
         for (let i = 0; i < path.length; i++) {
           const current_locale = path[i].building * path[i].floor
           console.log(i+":"+locale+":"+current_locale)
-          if (current_locale != locale) {
+          if (current_locale !== locale) {
             directions.push(path.slice(dir_start, i))
             dir_start = i
             locale = current_locale
@@ -42,7 +42,7 @@
         directions.push(path.slice(dir_start, path.length))
         console.log("directions", directions)
         this.$store.dispatch('setDirections', directions)
-
+        this.$store.dispatch('setTitle', 'DH ' + from + ' to DH ' + to)
         this.$router.push({
           name: 'result'
         })

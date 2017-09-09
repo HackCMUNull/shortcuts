@@ -22,8 +22,8 @@
   export default {
     data () {
       return {
-        from: '2252',
-        to: '2311'
+        from: '',
+        to: ''
       }
     },
     methods: {

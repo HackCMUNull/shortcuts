@@ -1,8 +1,9 @@
-const nodeMap = {}
-const roomMap = {}
+export const nodeMap = {}
+export const roomMap = {}
 
 export class Node {
   constructor(id, name, rooms, links) {
+    this.id = id
     this.name = name || ""
     this.links = links || []
     this.rooms = rooms || []
@@ -35,15 +36,17 @@ export class Graph {
     const dist = get[0]
     const prev = get[1]
     let nodeU = target
-    while (prev[nodeU] !== undefined) {
-      seq.insert(0, nodeU)
-      nodeU = prev[nodeU]
+    while (prev[nodeU.id] !== null) {
+      seq.unshift(nodeU)
+      console.log('dpath', nodeU)
+      console.log(prev[nodeU.id])
+      nodeU = nodeMap[prev[nodeU.id]]
     }
-    seq.insert(0, nodeU)
+    seq.unshift(nodeU)
     return seq
   }
 
-  Dijkstra(self, start) {
+  Dijkstra(start) {
     let vertexQ = []
     const dist = {}
     const prev = {}
@@ -51,19 +54,32 @@ export class Graph {
     let nodeU = null
 
     this.nodes.forEach((node) => {
-      dist[node] = Infinity
-      prev[node] = null
-      vertexQ.append(node)
+      dist[node.id] = Infinity
+      prev[node.id] = null
+      vertexQ.push(node.id)
     })
-    dist[start] = 0
+    dist[start.id] = 0
+    console.log(dist)
+
     while (vertexQ.length > 0) {
-      sorted_dist = sorted(dist.items(), key = operator.itemgetter(1))
-      nodeU = Object.keys(sorted_dist)
-        .map((key) => sorted_dist[key][0])
+      let sorted_dist = Object.keys(dist).map((key) => {
+        return {
+          key,
+          value: dist[key]
+        }
+      }).sort((a, b) => {
+        return a.value - b.value
+      }) // sorted(dist.items(), key = operator.itemgetter(1))
+
+      // console.log(sorted_dist)
+      nodeU = sorted_dist
+        .map((tuple) => tuple.key)
         .find((element) => vertexQ.indexOf(element) > -1)
+      console.log('nodeU', nodeU)
       vertexQ = vertexQ.filter((element) => element !== nodeU)
-      nodeU.links.forEach((neighbor) => {
+      nodeMap[nodeU].links.forEach((neighbor) => {
         const alt = dist[nodeU] + 1
+        console.log(nodeU, alt)
         if (alt < dist[neighbor]) {
           dist[neighbor] = alt
           prev[neighbor] = nodeU

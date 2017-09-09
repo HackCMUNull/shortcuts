@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <md-list>
-      <md-list-item v-for="h in history" :key="id">
+  <div class="list-container" ref="container">
+    <md-list class="list">
+      <md-list-item v-for="h in history" :key="h.id">
         <span class="history-item" @click="clickHistory(h.id)">
           <i class="fa fa-angle-double-right"></i>
           From {{h.start}} to {{h.end}}<br>
@@ -46,10 +46,12 @@
     },
     methods: {
       clickHistory (id) {
-        alert("You clicked on History #" + id)
+//        alert("You clicked on History #" + id)
         this.history.push({
+          id: this.history.length,
           start: this.history[id].start,
-          end: this.history[id].end
+          end: this.history[id].end,
+          time: this.history[id].time
         })
       },
 
@@ -59,18 +61,46 @@
           end: "TBA"
         })
       }
+    },
+    watch: {
+      history (to, from) {
+        this.$nextTick(function () {
+          this.$refs.container.scrollTop = this.$refs.container.scrollHeight;
+        })
+      }
     }
   }
 </script>
 
 <style scoped>
   .history-item {
-    padding-left: 20px;
-    padding-bottom: 20px;
+    padding: 16px 16px;
+    background: white;
+    position: relative;
+  }
+  .md-list-item::after {
+    content: '';
+    height: 1px;
+    /*width: 80vw;*/
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    right: 1px;
   }
   .history-time {
     font-size: 80%;
     color: #AAA;
     padding-left: 20px;
+  }
+  .list-container {
+    display: flex;
+    overflow: scroll;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+  }
+  .list {
+    flex: 1;
   }
 </style>

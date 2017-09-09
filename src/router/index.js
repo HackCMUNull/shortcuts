@@ -5,8 +5,9 @@ import Landing from '../components/Landing.vue'
 import Home from '../components/Home.vue'
 import Result from '../components/Result.vue'
 import Swiper from '../components/Swiper.vue'
+import NavbarBack from '../components/NavbarBack.vue'
 import Navbar from '../components/Navbar.vue'
-import Navbar2 from '../components/Navbar02.vue'
+import FloorRender from '../floor/FloorRender.vue'
 
 Vue.use(Router)
 
@@ -14,14 +15,19 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'landing',
-      component: Landing
-    },
-    {
-      path: '/home',
       name: 'home',
       component: Home
     },
+    // {
+    //   path: '/home',
+    //   children: [
+    //     {
+    //       path: '/result',
+    //       name: 'result',
+    //       component: Result
+    //     }
+    //   ]
+    // },
     {
       path: '/result',
       name: 'result',
@@ -35,7 +41,7 @@ export default new Router({
     {
       path: '/b2',
       name: 'b2',
-      component: Navbar2
+      component: NavbarBack
     },
     {
       path: '/history',
@@ -46,6 +52,11 @@ export default new Router({
       path: '/swipe',
       name: 'swipe',
       component: Swiper
+    },
+    {
+      path: '/floor',
+      name: 'floor',
+      component: FloorRender
     }
   ]
 })

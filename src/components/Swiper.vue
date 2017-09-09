@@ -1,6 +1,6 @@
 <template>
   <div class="swiper-wrap">
-    <swiper :options="swiperOption">
+    <swiper class="swipe-container-wrap" :options="swiperOption">
       <swiper-slide>Slide 1</swiper-slide>
       <swiper-slide>Slide 2</swiper-slide>
       <swiper-slide>Slide 3</swiper-slide>
@@ -12,8 +12,12 @@
       <swiper-slide>Slide 9</swiper-slide>
       <swiper-slide>Slide 10</swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
-      <md-button class="swiper-prev md-primary" slot="button-prev"><md-icon class="white-icon md-primary">chevron_left</md-icon></md-button>
-      <md-button class="swiper-next md-primary" slot="button-next"><md-icon class="white-icon md-primary">chevron_right</md-icon></md-button>
+      <md-button class="swiper-prev md-primary" slot="button-prev">
+        <md-icon class="white-icon md-primary">chevron_left</md-icon>
+      </md-button>
+      <md-button class="swiper-next md-primary" slot="button-next">
+        <md-icon class="white-icon md-primary">chevron_right</md-icon>
+      </md-button>
     </swiper>
   </div>
 </template>
@@ -31,7 +35,7 @@
 //          setWrapperSize: true,
 //          autoHeight: true,
 //          setWrapperSize: true,
-          notNextTick: true,
+//          notNextTick: true,
           observeParents: true,
 //          centeredSlides: true,
           nextButton: '.swiper-next',
@@ -75,11 +79,11 @@
     width: 100%;
   }
 
-  .swiper-wrap {
+  .swiper-wrap, .swipe-container-wrap {
+    width: 100%;
+    height: 100%;
+    padding: 0 0 64px 0;
     margin: 0;
-    padding: 0;
-    /*position: relative;*/
-    /*height: 100%;*/
   }
 
   .swiper-prev, .swiper-next {
@@ -129,5 +133,6 @@
 
   .swiper-pagination {
     bottom: 0 !important;
+    box-shadow: 0 -5px 16px rgba(0, 0, 0, 0.1);
   }
 </style>

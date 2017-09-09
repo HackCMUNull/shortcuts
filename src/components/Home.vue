@@ -35,11 +35,13 @@
   }
   .navbar {
     flex: 0;
+    flex-basis: auto;
   }
   .history {
     flex: 1;
   }
   .input-panel {
     flex: 0;
+    flex-basis: auto;
   }
 </style>

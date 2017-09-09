@@ -37,8 +37,8 @@ export default new Router({
       component: Navbar2
     },
     {
-      path: '/a',
-      name: 'a',
+      path: '/history',
+      name: 'history',
       component: HistoryList
     }
   ]

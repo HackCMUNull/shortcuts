@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import HistoryList from '../components/HistoryList.vue'
 import Landing from '../components/Landing.vue'
 import Home from '../components/Home.vue'
 import Result from '../components/Result.vue'
@@ -22,6 +23,11 @@ export default new Router({
       path: '/result',
       name: 'result',
       component: Result
+    },
+    {
+      path: '/a',
+      name: 'a',
+      component: HistoryList
     }
   ]
 })

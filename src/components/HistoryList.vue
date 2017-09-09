@@ -38,7 +38,7 @@
     },
     methods: {
       clickHistory (id) {
-        alert(id)
+        alert("You clicked on "+id)
         this.history[id].title = "zaqxfc"
         this.history.push({
           id: this.history.length,

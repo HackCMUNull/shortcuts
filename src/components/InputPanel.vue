@@ -26,8 +26,8 @@
   export default {
     data () {
       return {
-        from: 'DH 2252',
-        to: 'DH 2311'
+        from: '',
+        to: ''
       }
     },
     methods: {

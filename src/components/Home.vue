@@ -26,6 +26,22 @@
         const path = graph.getDpath(start, target)
         path.forEach(console.log)
 
+        // split path
+        const directions = []
+        let locale = path[0].building * path[0].floor
+        let dir_start = 0
+        for (let i = 0; i < path.length; i++) {
+          const current_locale = path[i].building * path[i].floor
+          console.log(i+":"+locale+":"+current_locale)
+          if (current_locale != locale) {
+            directions.push(path.slice(dir_start, i))
+            dir_start = i
+            locale = current_locale
+          }
+        }
+        directions.push(path.slice(dir_start, path.length))
+        console.log("directions", directions)
+
         this.$router.push({
           name: 'result'
         })

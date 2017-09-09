@@ -59,7 +59,7 @@
     position: absolute;
     z-index: 1;
     left: 0;
-    transition: left 0.5s ease;
+    transition: left 0.3s ease;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
   }
 
@@ -71,7 +71,7 @@
     position: absolute;
     z-index: 1;
     left: 120vw;
-    transition: left 0.6s ease;
+    transition: left 0.4s ease;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
   }
 

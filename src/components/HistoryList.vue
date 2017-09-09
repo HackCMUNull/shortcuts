@@ -2,7 +2,10 @@
   <div>
     <md-list>
       <md-list-item v-for="h in history" :key="id">
-        <span @click="clickHistory(h.id)">From {{h.start}} to {{h.end}}</span>
+        <span @click="clickHistory(h.id)">
+          <i class="fa fa-angle-double-right"></i>
+          From {{h.start}} to {{h.end}}
+        </span>
       </md-list-item>
     </md-list>
   </div>
@@ -38,11 +41,17 @@
     },
     methods: {
       clickHistory (id) {
-        alert("You clicked on "+id)
-        this.history[id].title = "zaqxfc"
+        alert("You clicked on History #"+id)
         this.history.push({
-          id: this.history.length,
-          title: "zswcct"
+          start: this.history[id].start,
+          end: this.history[id].end
+        })
+      },
+
+      addHistory () {
+        this.history.push({
+          start: "TBA",
+          end: "TBA"
         })
       }
     }
